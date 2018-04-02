@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Materialize
+gem 'materialize-sass'
+gem 'material_icons' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
