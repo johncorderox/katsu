@@ -11,4 +11,12 @@ before_filter :configure_permitted_parameters, if: :devise_controller?
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me)}
   end
 
+  def after_sign_up_path_for(resource)
+    moods_index_path
+  end
+
+  def after_sign_in_path_for(resource)
+    moods_index_path
+  end
+
 end
