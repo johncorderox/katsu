@@ -5,7 +5,7 @@ gem 'materialize-sass'
 gem 'material_icons'
 
 # Devise Auth
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'

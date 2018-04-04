@@ -13,6 +13,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><%= link_to "Sign In", new_user_session_path %></li>
       <li><%= link_to "Register", new_user_registration_path %></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>
 </nav>
