@@ -16,5 +16,19 @@
  @import "materialize";
 
  .nav-wrapper {
-   background-color: #90caf9;
+   background-color: #05013c;
  }
+
+ nav ul li:hover {
+   background-color: #82b1ff;
+}
+body {
+  background-color: #ced0d8;
+}
+
+.btn {
+  background-color: #82b1ff;
+}
+.btn:hover {
+  background-color: #05013c;
+}
