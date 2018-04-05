@@ -1,1 +1,1 @@
-==　KATSU カツ {<img src="https://beta.gemnasium.com/badges/github.com/johncorderox/katsu.svg" alt="Dependency Status" />}[https://beta.gemnasium.com/projects/github.com/johncorderox/katsu]
+==　KATSU カツ {<img src="https://badges.depfu.com/badges/42550c7022817ce2545aa4818dc16c2a/status.svg" alt="Dependency Status" />}[https://beta.gemnasium.com/projects/github.com/johncorderox/katsu]
