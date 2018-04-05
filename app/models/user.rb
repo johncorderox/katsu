@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, presence: true, format: { with: /\A[a-zA-Z]+\z/}, length: { minimum: 1}
+  validates :username, presence: true, format: { with: /\A[a-zA-Z]+\z/},
+   length: { minimum: 1}, on: :create
 
   # Validates that each username is unique
   validates_uniqueness_of :username, :email
@@ -23,6 +24,5 @@ class User < ActiveRecord::Base
 
       def add_at_symbol_to_username
         self.username.insert(0, '@')
-
       end
 end
