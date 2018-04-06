@@ -11,12 +11,27 @@
       </div>
     </div>
     <div class="col s8">
-          <label for="first_name">How do you feel?</label>
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <div id="mood-friends">
+            <div id="gif">
+              <div id="search-gif">
+                <label for="query">How do you feel?</label>
+                <input placeholder="Placeholder" id="query" type="text" class="validate">
+                  <div id="search-results">
+                    <form action="/moods" method="POST">
+                      <div id="form-finish">
+
+                      </div>
+                      <input type="hidden" name="mood[user_id]" value="<%= @user.id %>">
+                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    </form>
+                  </div>
+              </div>
+            </div>
+          <button type="submit" class="waves-effect waves-light btn" id="find">Find</button> <br><br>
       <ul class="collection">
-      <li class="collection-item">Alvin</li>
-      <li class="collection-item">Alvin</li>
-      <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
+        <li class="collection-item">Alvin</li>
     </ul>
     </div>
   </div>

@@ -8,8 +8,8 @@ before_filter :configure_permitted_parameters, if: :devise_controller?
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :bio, :gender, :birthday)}
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :current_password, :bio, :gender, :birthday)}
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me)}
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :current_password, :bio, :gender, :birthday])
   end
 
   def after_sign_up_path_for(resource)
