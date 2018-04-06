@@ -15,3 +15,29 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize
+
+$(document).ready(function(){
+
+  // call the date picker popup for Registration/edit
+  $('.datepicker').pickadate({
+    selectMonths: true,// Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year,
+  });
+
+  $('#find').on("click", function(){
+
+    const query = $('#query').val();
+    
+    $.get("https://api.giphy.com/v1/gifs/search?api_key=nRK4UnJKsEepJVhU6xdBCrQuVP5tH09R&q="+query+"&limit=48&offset=0&rating=PG&lang=en", function(res) {
+       for ( var i = 0; i < res.data.length; i++) {
+        var url = res.data[i].images.original.url;
+        var code = "<input type=\"image\" name=\"mood[url]\" value=\""+url+"\" src=\""+url+"\"/> <input type=\"hidden\" name=\"mood[mood]\" value=\""+query+"\">";
+
+         $('#form-finish').append(code);
+        }
+    }, "json");
+
+  });
+
+
+});

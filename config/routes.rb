@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
-
-  get 'moods/index'
-
-  get 'moods/create'
-
   root 'mains#index'
+
+  resources :moods
 
   devise_for :users
 
