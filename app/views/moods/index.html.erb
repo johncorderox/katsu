@@ -18,9 +18,7 @@
                 <input placeholder="Placeholder" id="query" type="text" class="validate">
                   <div id="search-results">
                     <form action="/moods" method="POST">
-                      <div id="form-finish">
-
-                      </div>
+                      <div id="form-finish"></div>
                       <input type="hidden" name="mood[user_id]" value="<%= @user.id %>">
                       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                     </form>
@@ -29,9 +27,15 @@
             </div>
           <button type="submit" class="waves-effect waves-light btn" id="find">Find</button> <br><br>
       <ul class="collection">
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
+        <% @mood.each do |moods| %>
+            <li class="collection-item">
+              <b><a href="/users/<%= moods.users_id%>"><%= moods.username %></a></b> <%= moods.created_at.to_time.strftime('%B %e at %l:%M %p') %>
+              <img src="<%= moods.url %>">
+              <% if current_user.id == moods.users_id %>
+              <a href="/moods/<%=moods.moods_id %>" data-method="delete">Delete</a>
+              <% end %>
+            </li>
+      <% end %>
     </ul>
     </div>
   </div>
