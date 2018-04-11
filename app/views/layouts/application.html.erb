@@ -13,7 +13,7 @@
     <a href="/moods" class="brand-logo">Katsu　カツ</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user.present? %>
-       <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+       <li><a href="/search"><i class="material-icons">search</i></a></li>
         <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <%else%>

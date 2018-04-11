@@ -8,6 +8,14 @@
         <div class="card-action">
           Moods: 0 Following: 0 Followers: 0
         </div>
+        <div class="card-action">
+        <p>Trending Moods Worldwide:</p>
+        Happiness:  <%= @happiness %><br>
+        Sadness:  <%= @sadness %><br>
+        Anger: <%= @anger %><br>
+        Fear: <%= @fear %><br>
+
+        </div>
       </div>
     </div>
     <div class="col s8">
@@ -29,13 +37,21 @@
       <ul class="collection">
         <% @mood.each do |moods| %>
             <li class="collection-item">
-              <b><a href="/users/<%= moods.users_id%>"><%= moods.username %></a></b> <%= moods.created_at.to_time.strftime('%B %e at %l:%M %p') %>
-              <img src="<%= moods.url %>">
-              <% if current_user.id == moods.users_id %>
-              <a href="/moods/<%=moods.moods_id %>" data-method="delete">Delete</a>
-              <% end %>
+              <div class="gifs-left">
+                <b><a href="/users/<%= moods.users_id%>"><%= moods.username %></a></b>
+                <%= moods.created_at.to_time.strftime('%B %e') %>
+                <% if current_user.id == moods.users_id %>
+                <a href="/moods/<%=moods.moods_id %>" data-method="delete">Delete</a>
+                <% end %>
+                <br>
+                Feeling <%= moods.mood %>
+              </div>
+              <div class="gifs-right">
+                <img src="<%= moods.url %>">
+              </div>
             </li>
       <% end %>
     </ul>
     </div>
   </div>
+</div>
