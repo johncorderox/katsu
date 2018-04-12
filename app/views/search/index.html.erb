@@ -9,11 +9,13 @@
      <% @search_users.each do |users| %>
      <li class="collection-item avatar">
        <img src="<%= users.url%>" alt="" class="circle">
-       <span class="title"><%= users.username %></span>
-       <p><%= users.bio %><br>
+       <a href="/users/<%=users.user_id%>"><span class="title"><%= users.username %></span></a>
+       <p><%= users.bio %><br><br>
          Last mood: <%= users.mood %>
        </p>
+       <% if current_user.id != users.users_id %>
        <a class="waves-effect waves-light btn secondary-content">Follow</a>
+       <% end %>
      </li>
      <% end %>
    </ul>
