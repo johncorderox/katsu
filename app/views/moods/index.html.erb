@@ -8,6 +8,14 @@
         <div class="card-action">
           Moods: 0 Following: 0 Followers: 0
         </div>
+        <div class="card-action">
+        <p>Trending Moods Worldwide:</p>
+        Happiness:  <%= @happiness %><br>
+        Sadness:  <%= @sadness %><br>
+        Anger: <%= @anger %><br>
+        Fear: <%= @fear %><br>
+
+        </div>
       </div>
     </div>
     <div class="col s8">
@@ -18,9 +26,7 @@
                 <input placeholder="Placeholder" id="query" type="text" class="validate">
                   <div id="search-results">
                     <form action="/moods" method="POST">
-                      <div id="form-finish">
-
-                      </div>
+                      <div id="form-finish"></div>
                       <input type="hidden" name="mood[user_id]" value="<%= @user.id %>">
                       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                     </form>
@@ -29,9 +35,23 @@
             </div>
           <button type="submit" class="waves-effect waves-light btn" id="find">Find</button> <br><br>
       <ul class="collection">
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
-        <li class="collection-item">Alvin</li>
+        <% @mood.each do |moods| %>
+            <li class="collection-item">
+              <div class="gifs-left">
+                <b><a href="/users/<%= moods.users_id%>"><%= moods.username %></a></b>
+                <%= moods.created_at.to_time.strftime('%B %e') %>
+                <% if current_user.id == moods.users_id %>
+                <a href="/moods/<%=moods.moods_id %>" data-method="delete">Delete</a>
+                <% end %>
+                <br>
+                Feeling <%= moods.mood %>
+              </div>
+              <div class="gifs-right">
+                <img src="<%= moods.url %>">
+              </div>
+            </li>
+      <% end %>
     </ul>
     </div>
   </div>
+</div>

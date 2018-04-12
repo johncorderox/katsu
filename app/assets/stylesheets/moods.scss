@@ -8,3 +8,17 @@ input[type="image"]{
   width: 200px;
 height: 100px;
 }
+
+.collection li{
+  height: 130px;
+}
+.collection img {
+  width: 200px;
+  height: 100px;
+}
+.gifs-left , .gifs-right{
+  display: inline-block;
+}
+.gifs-right {
+    float: right;
+}
