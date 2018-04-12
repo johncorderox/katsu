@@ -1,15 +1,9 @@
  <div class="container">
    <div class="row">
-      <form class="col s9 action="search/" method="GET"">
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" class="validate" name="search"/>
-            <label for="icon_prefix">Username</label>
-            <button type="submit" class="waves-effect waves-light btn">Search</button>
-          </div>
-        </div>
-      </form>
+      <%= form_tag(search_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag 'Search', name: nil, class: "waves-effect waves-light btn", placeholder: "Username"  %>
+      <% end %>
     </div>
    <ul class="collection">
      <% @search_users.each do |users| %>
@@ -17,6 +11,7 @@
        <img src="<%= users.url%>" alt="" class="circle">
        <span class="title"><%= users.username %></span>
        <p><%= users.bio %><br>
+         Last mood: <%= users.mood %>
        </p>
        <a class="waves-effect waves-light btn secondary-content">Follow</a>
      </li>
