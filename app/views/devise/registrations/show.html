@@ -1,0 +1,14 @@
+<div class="col s12">
+  <div class="card profile-card">
+    <div class="card-content black-text">
+      <span class="card-title"><%= @user.username %></span>
+    </div>
+    <div class="card-action">
+      You have a total of <b><%= @user.moods.count %></b>  moods since you first joined.
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3></h3>
+<%= pie_chart Mood.where(:user_id => params[:id]).group(:mood).count %>
+</div>
