@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="collection">
+    <li class="collection-item" id="new-post">
+      <form action="/posts" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="text" name="post[title]" placeholder="Title *"/>
+        <select class="browser-default" id="category" name="post[category]">
+          <option value="" disabled selected>Add Category</option>
+          <option value="Mental Health">Mental Health</option>
+          <option value="Psychology">Psychology</option>
+          <option value="Anxiety disorder">Anxiety disorder</option>
+          <option value="Depression">Depression</option>
+          <option value="Schizophrenia">Schizophrenia</option>
+          <option value="Suicide Prevention">Suicide Prevention</option>
+          <option value="Autism Spectrum">Autism Spectrum</option>
+          <option value="Eating Disorder">Eating Disorder</option>
+          <option value="Other">Other</option>
+      </select>
+        <textarea class="materialize-textarea" name="post[content]" placeholder="Content *"></textarea>
+        <input type="hidden" value="<%= current_user.id %>" name="post[user_id]">
+        <button type="submit" class="waves-effect waves-light btn">Add Post</button>
+      </form>
+    </li>
+  </ul>
+</div>

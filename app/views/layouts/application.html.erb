@@ -14,15 +14,16 @@
     <a href="/moods" class="brand-logo">Katsu　カツ</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user.present? %>
-       <li><a href="/search"><i class="material-icons">search</i></a></li>
+        <li><a href="/search"><i class="material-icons">search</i></a></li>
+        <li><%= link_to "Articles", posts_path %></li>
         <li><a href="users/<%= current_user.id %>">My Chart</a></li>
         <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <%else%>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
-      <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Register", new_user_registration_path %></li>
     <% end %>
-    </ul>
+  </ul>
   </div>
 </nav>
 <p class="notice"><%= notice %></p>
