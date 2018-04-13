@@ -11,12 +11,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <div class="nav-wrapper">
-    <a href="/moods" class="brand-logo">Katsu　カツ</a>
+    <a href="/moods" class="brand-logo">
+      <% if current_page?(posts_path) %>
+        Katsu Articles ブログ
+      <% else %>
+          Katsu カツ
+      <% end %>
+    </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user.present? %>
         <li><a href="/search"><i class="material-icons">search</i></a></li>
         <li><%= link_to "Articles", posts_path %></li>
-        <li><a href="users/<%= current_user.id %>">My Chart</a></li>
+        <li><a href="/users/<%= current_user.id %>">My Chart</a></li>
         <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <%else%>

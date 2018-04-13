@@ -1,2 +1,18 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <ul class="collection">
+    <li class="collection-item" id="show-post">
+      <% if current_user.id == @post.user.id %>
+      <%= link_to 'Edit Post', edit_post_path ,data: { confirm: "Are you sure you want to delete?" } %> |
+      <%= link_to "Delete Post", { controller: :posts, action: :destroy, id: @post.id }, data: { confirm: "Are you sure you want to delete?" }, method: :delete %>
+      <% end %>
+        <h5><%= @post.title %></h5>
+        <h6>- <%= @post.category %></h6><br>
+        <hr>
+        <h6><%= @post.content %></h6>
+        <input type="hidden" value="<%= current_user.id %>" name="post[user_id]">
+        <br>
+        <h6>By: <a href="/users/<%= @post.user.id %>"><%= @post.user.username %></a></h6>
+    </li>
+  </ul>
+  <u><%= link_to "Go Back", posts_path %></u>
+</div>

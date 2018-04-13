@@ -12,7 +12,7 @@
       <% @post.each do |post| %>
       <li class="collection-item avatar">
         <i class="material-icons circle">chat</i>
-        <span class="title"><a href="post/<%= post.posts_id %>"><%= post.title %></a></span>
+        <span class="title"><a href="posts/<%= post.posts_id %>"><%= post.title %></a></span>
         <p>~ <%= post.category %><br>
           By: <a href="/users/<%= post.users_id %>"><%= post.username %></a>
         </p>

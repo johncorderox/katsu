@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.joins(:user).select("posts.id AS posts_id, posts.title, posts.category, users.id AS users_id, users.username").order("posts.id ASC")
+    @post = Post.joins(:user).select("posts.id AS posts_id, posts.title, posts.category, users.id AS users_id, users.username").order("posts.id DESC")
   end
 
   def create
@@ -23,9 +23,12 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
+    @post_delete = Post.find(params[:id]).delete
+    redirect_to posts_path
   end
 
   private
