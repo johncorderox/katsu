@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'search#index'
 
+  post '/posts/addcomment' =>'posts#addcomment'
+
   resources :moods
   resources :posts
 

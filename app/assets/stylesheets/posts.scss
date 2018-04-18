@@ -8,3 +8,22 @@
 #new-post, #show-post {
   height: 500px;
 }
+
+#addComment {
+  cursor: pointer;
+}
+
+#comment-box {
+  display: none;
+  line-height: 1.5;
+
+}
+#comments {
+
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  line-height: 1.5;
+  padding: 10px;
+}

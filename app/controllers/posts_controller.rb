@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.where(post_id: params[:id]).order("comments.id DESC")
   end
 
   def destroy
@@ -31,9 +33,22 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def addcomment
+    @new_comment = Comment.new(new_comment)
+    if @new_comment.save
+      redirect_to :back
+    else
+      flash[:alert] = "Comment is needed!"
+      redirect_to :back
+    end
+  end
+
   private
     def new_post
      params.require(:post).permit(:title, :category, :content, :user_id)
    end
 
+   def new_comment
+     params.require(:comment).permit(:comment, :user_id, :post_id)
+   end
 end

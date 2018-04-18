@@ -2,7 +2,7 @@
   <ul class="collection">
     <li class="collection-item" id="show-post">
       <% if current_user.id == @post.user.id %>
-      <%= link_to 'Edit Post', edit_post_path ,data: { confirm: "Are you sure you want to delete?" } %> |
+      <%= link_to 'Edit Post', edit_post_path %> |
       <%= link_to "Delete Post", { controller: :posts, action: :destroy, id: @post.id }, data: { confirm: "Are you sure you want to delete?" }, method: :delete %>
       <% end %>
         <h5><%= @post.title %></h5>
@@ -11,8 +11,28 @@
         <h6><%= @post.content %></h6>
         <input type="hidden" value="<%= current_user.id %>" name="post[user_id]">
         <br>
-        <h6>By: <a href="/users/<%= @post.user.id %>"><%= @post.user.username %></a></h6>
+        <h6>By: <a href="/users/<%= @post.user.id %>"><%= @post.user.username %></a> on <%= @post.created_at.strftime("%m-%d-%Y") %></h6>
     </li>
   </ul>
+  <u><a id="addComment">Add Comment</a></u>
   <u><%= link_to "Go Back", posts_path %></u>
+</div>
+<div class="container">
+  <ul class="collection" id="comment-box">
+    <li class="collection-item">
+      <form action="/posts/addcomment" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="text" placeholder="Comment" name="comment[comment]"/>
+      <input type="hidden" value="<%= current_user.id %>" name="comment[user_id]">
+      <input type="hidden" value="<%= @post.id %>" name="comment[post_id]">
+      <button type="submit" class="waves-effect waves-light btn">Add Comment</button><br>
+      </form>
+    </li>
+  </ul>
+    <% @comment.each do |comment| %>
+    <div id="comments">
+      <%= comment.comment %>
+      <hr>
+    </div>
+    <% end %>
 </div>

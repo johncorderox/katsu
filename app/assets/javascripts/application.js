@@ -27,11 +27,18 @@ $(document).ready(function(){
     selectMonths: true,
   });
 
+  // Show the comment box
+  $('#addComment').on("click", function(){
+
+    $('#comment-box').toggle();
+
+  });
+
   $('#find').on("click", function(){
 
     const query = $('#query').val();
 
-    $.get("https://api.giphy.com/v1/gifs/search?api_key=nRK4UnJKsEepJVhU6xdBCrQuVP5tH09R&q="+query+"&limit=48&offset=0&rating=PG&lang=en", function(res) {
+    $.get("https://api.giphy.com/v1/gifs/search?api_key=nRK4UnJKsEepJVhU6xdBCrQuVP5tH09R&q="+query+"&limit=140&offset=0&rating=PG&lang=en", function(res) {
        for ( var i = 0; i < res.data.length; i++) {
         var url = res.data[i].images.original.url;
         var code = "<input type=\"image\" name=\"mood[url]\" value=\""+url+"\" src=\""+url+"\"/> <input type=\"hidden\" name=\"mood[mood]\" value=\""+query+"\">";
