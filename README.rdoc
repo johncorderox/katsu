@@ -1,2 +1,16 @@
 ==　KATSU カツ {<img src="https://badges.depfu.com/badges/42550c7022817ce2545aa4818dc16c2a/status.svg" alt="Dependency Status" />}[https://depfu.com] {<img src="https://badges.depfu.com/badges/42550c7022817ce2545aa4818dc16c2a/overview.svg" alt="Dependency Status" />}[https://depfu.com/github/johncorderox/katsu]
+https://media.giphy.com/media/25pOQf1FP1rK6mjqPP/giphy.gif
 
+== Bio
+
+Katsu is a Ruby Web Application that calculates mood based on search results of .gifs. Instead of telling your friends you're upset, angry, or even depressed, you can use gifs that best represent your mood. Your profile gives you a custom pie chart based on all of your moods from the sign up date. The last feature is an article based system where users can create,
+edit, update, comment and delete blog posts. Users can contribute articles based on health awareness, ways to help and control mental disorders, and overall comment on their experience on how they cope with everyday emotions.
+
+Features 
+- Giphy API Search 
+- Trending results 
+- Chart Visual for moods 
+- Article system 
+
+== To Install
+  mkdir app && cd app && git clone https://github.com/johncorderox/katsu.git && bundle install && rake db:migrate && rails s
